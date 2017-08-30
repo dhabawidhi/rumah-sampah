@@ -1,0 +1,74 @@
+<ion-view view-title="Artikel">
+  <ion-content>
+  	<div>
+       
+      <div class="gem-profile-media">     
+       
+       <img src="img/{{detailArtikel.kategori}}.jpg" alt="" class="fluid-image profile-background-image" style="vertical-align:middle;">
+        <h2 class="gem-white" align="center">{{detailArtikel.judul_artikel}}</h2>
+        <h6 class="gem-white" align ="center">Rating: {{detailArtikel.rating | number:2}}</h6>
+
+        <div class="bottombar-and-shadow"></div>
+
+      </div>
+
+      <!-- Post Content -->
+      <div class="gem-post-content padding">
+        <p>{{detailArtikel.isi_artikel}}</p>
+        <h6>By: <a href="#/app/user/{{detailArtikel.id_user}}">{{detailArtikel.username}}</a></h6>
+        <p style="color:red" ng-hide="detailArtikel.status == 'Promoted' ">Artikel ini hanya dapat dibaca user terdaftar</p>
+        <font size="1"> <p>Dibuat pada : {{detailArtikel.timestamp}}</p></font>
+        <div class="tabs gem-position-static profile-tabs">
+           <a class="tab-item" ng-click="comment()">
+              Lihat Komentar 
+            </a>
+            <a class="tab-item" ng-show="EditA" ng-click="updateArt()">
+              Edit Artikel
+            </a> 
+            <a class="tab-item icon ion-star" ng-click="popover.show($event)">Rate Artikel
+            </a>
+        </div>
+      </div>
+
+
+    </div>
+  </ion-content>
+
+   <script id="templates/popover.html" type="text/ng-template">
+      <ion-popover-view>
+        <ion-content>
+          <div class="list">
+            <p class="item" ng-show="rating">Rating dari kamu : {{bintang.rating}}</p>
+            <p class="item" ng-show="!rating">Kamu belum memberi rating</p>
+
+            <a class="item" ng-click="rateartikel(1);" target="_blank">
+              <i class="icon ion-star"></i>
+            </a>
+            <a class="item" ng-click="rateartikel(2);" target="_blank">
+              <i class="icon ion-star"></i>
+              <i class="icon ion-star"></i>
+            </a>
+            <a class="item" ng-click="rateartikel(3);" target="_blank">
+              <i class="icon ion-star"></i>
+              <i class="icon ion-star"></i>
+              <i class="icon ion-star"></i>
+            </a>
+            <a class="item" ng-click="rateartikel(4);" target="_blank">
+              <i class="icon ion-star"></i>
+              <i class="icon ion-star"></i>
+              <i class="icon ion-star"></i>
+              <i class="icon ion-star"></i>
+            </a>
+            <a class="item" ng-click="rateartikel(5);" target="_blank">
+              <i class="icon ion-star"></i>
+              <i class="icon ion-star"></i>
+              <i class="icon ion-star"></i>
+              <i class="icon ion-star"></i>
+              <i class="icon ion-star"></i>
+            </a>
+          </div>
+        </ion-content>
+      </ion-popover-view>
+    </script>
+
+</ion-view>

@@ -1,0 +1,35 @@
+<ion-view hide-back-button
+ view-title="Beranda">
+  <ion-content>
+    <ion-list>
+      <ion-item collection-repeat="dataArtikel in dataArtikels| limitTo:pageSize"  href="#/app/thread/{{dataArtikel.id_artikel}}">
+      <ion-refresher
+            pulling-text="Pull to refresh..."
+            on-refresh="showData()">
+          </ion-refresher>
+          
+        <div class="row">
+          <div class="col col-80">
+            <h2>{{dataArtikel.judul_artikel}}</h2>
+            <p>by: {{dataArtikel.username}}</p>
+        
+          </div>
+          <div class="col col-20">
+            <i class="icon ion-star icon-accessory"></i>
+            <p>{{dataArtikel.rating| number:2}}</ p>
+          </div>
+        
+          </div>
+        
+      </ion-item>
+    </ion-list>
+      <div class="row">
+        <div class="col col-10"></div>
+        <div class="col col-80">
+          <button class="button button-block button-calm" ng-click="loadNextPage()">Artikel lain</button>
+        </div>
+        <div class="col col-10"></div>
+      </div>
+
+  </ion-content>
+</ion-view>

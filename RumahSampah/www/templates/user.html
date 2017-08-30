@@ -1,0 +1,65 @@
+<ion-view view-title="Profile">
+  <ion-content class="has-header gem-ion-content">
+
+  	<div class="gem-profile-media">
+
+      <div class="gem-profile-details profile2">
+        <!-- Profile Name -->
+        <h3 class="gem-white" style="margin-bottom: 10">
+        {{dataUser.username}}
+        </h3>
+
+      </div>
+
+      <!-- Background Image -->
+      <img src="img/post-img.jpg" alt="" class="fluid-image profile-background-image" style="vertical-align:middle;">
+
+      
+    </div>
+
+    <div class="tabs gem-position-static profile-tabs">
+     <a class="tab-item" ng-class="activated1" ng-click="usertabT()">
+        Aktivitas forum
+      </a>
+      <a class="tab-item" ng-class="activated2" ng-click="usertabF()">
+        Profil
+      </a>
+      <a class="tab-item" ng-show="EditT" ng-click="updateuser()"> Ubah Profil </a>
+    </div>
+
+    <div ng-show="usertab">
+    	<ion-list>
+        <ion-item>
+          <div class="card" ng-repeat="item in userforum">
+            <div class="item item-divider">
+            {{dataUser.username}} Membuat artikel:
+            </div>
+            <div class="item item-text-wrap">
+              <div><a href="#/app/thread/{{item.id_artikel}}">{{item.judul_artikel}}</a></div>
+              <div>{{item.kategori}}</div>
+            </div>
+          </div>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <div ng-show="!usertab" >
+       <div class="card">
+            <div class="item item-divider">
+            Email User
+            </div>
+            <div class="item item-text-wrap">
+            {{dataUser.email_user}}
+            </div>
+        </div>
+        <div class="card">
+            <div class="item item-divider">
+            Jenis Kelamin
+            </div>
+            <div class="item item-text-wrap">
+            {{dataUser.jenis_kelamin}}
+            </div>
+        </div>
+    </div>   
+  </ion-content>
+</ion-view>

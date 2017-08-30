@@ -1,0 +1,31 @@
+<ion-modal-view>
+  <ion-header-bar  class="bar-balanced">
+    <h1 class="title" align="center"> Buat Artikel Baru </h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closecreateThread()"><i class="ion-close-round"></i></button>
+    </div>
+  </ion-header-bar>
+<ion-view view-title="Create New Thread">
+  <ion-content>
+    <form ng-submit="addThread();">
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" placeholder="Title" ng-model="thread.title">
+        </label>
+        <label class="item item-input item-select">
+          <select ng-model="thread.category">
+            <option value="">--Pilih--</option>
+            <option ng-repeat="item in kategori" value="{{item.value}}">{{item.text}}</option>
+          </select>
+        </label>
+        <label class="item item-input" >
+          <textarea maxlength="3000" rows="20" placeholder="Content" ng-model="thread.content"> </textarea>
+        </label>
+        <label class="item">
+          <button class="button button-block button-calm" type="submit">Buat Artikel</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>
+</ion-modal-view>

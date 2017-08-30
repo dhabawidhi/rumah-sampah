@@ -1,0 +1,52 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-balanced">
+    <h1 class="title" align="center">Comment Thread</h1>
+    <div class="buttons">
+      <button class="button button-clear icon " ng-click="closeComment()">
+      <i class="ion-close-round"> </i>
+      </button>
+    </div>
+  </ion-header-bar>
+
+  <ion-content>
+  	<ion-list>
+    	<ion-item>
+        <div class="card" ng-repeat="data in komentar| limitTo:pageSize">
+          <div class="item item-divider">
+            <div>{{data.username}}</div>
+          </div>
+          <div class="item item-text-wrap">
+            <div>{{data.isi_komentar}}</div>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+    <div class="row">
+        <div class="col col-10"></div>
+        <div class="col col-80">
+          <button  class="button button-block button-calm" ng-click="loadNextPage()">Komentar lain</button>
+        </div>
+        <div class="col col-10"></div>
+    </div>
+    
+    <form ng-submit="addComment()" ng-show="showsubs">
+      <div class="list">
+       <label class="item item-input" >
+          <textarea maxlength="3000" rows="20" placeholder="Content" ng-model="commentData.content"> </textarea>
+        </label>
+        <label class="item">
+        <div class="row">
+        <div class="col col-10"></div>
+        <div class="col col-80">
+          <button class="button button-block button-calm" type="submit">Post Comment</button>
+        </div>
+        <div class="col col-10"></div>
+      </div>
+          
+        </label>
+      </div>
+    </form>
+
+  </ion-content>
+
+</ion-modal-view>

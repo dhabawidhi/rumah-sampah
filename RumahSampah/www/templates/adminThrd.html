@@ -1,0 +1,36 @@
+<ion-view view-title="Thread List">
+  <ion-content>
+    <ion-list show-delete="shouldShowDelete">
+      <ion-item ng-repeat="dataArtikel in dataArtikels"  href="#/app/thread/{{dataArtikel.id_artikel}}">
+        <div class="row">
+          <div class="col col-75">
+    
+            <h2>{{dataArtikel.judul_artikel}}</h2>
+            <p>by: {{dataArtikel.username}}</p>
+      
+          </div>
+          <div class="col col-5">
+            <i ng-show="dataArtikel.status=='Promoted'" class="ion-checkmark-round"></i>
+            <i ng-show="dataArtikel.status=='Unpromoted'" class="ion-close-round"></i>
+          </div>
+          
+          <div class="col col-20">
+            <i class="icon ion-star icon-accessory"></i>
+            <p>{{dataArtikel.rating| number:2}} </p>
+          </div>
+        
+          </div>
+        
+      
+        <ion-delete-button class="ion-close-round button-clear" ng-click="deleteArtikel({{dataArtikel.id_artikel}})">
+        </ion-delete-button>
+        <ion-option-button class="ion-ios-checkmark-empty button-clear" ng-click="promoteArtikel({{dataArtikel.id_artikel}})">Promote
+        </ion-option-button>
+              
+
+      </ion-item>
+    </ion-list>
+    <button class="button button-block button-icon icon ion-ios-minus-outline"
+          ng-click="shouldShowDelete = !shouldShowDelete"></button>
+  </ion-content>
+</ion-view>

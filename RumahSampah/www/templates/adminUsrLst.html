@@ -1,0 +1,15 @@
+<ion-view view-title="User List">
+  <ion-content>
+    <ion-list show-delete="shouldShowDelete">
+     <ion-item ng-repeat="dataUsers in dataUsers"  href="#/app/user/{{dataUsers.id_user}}">
+            <h2>{{dataUsers.username}}</h2>        
+        <ion-delete-button class="ion-close-round button-clear" ng-click="deleteUser({{dataUsers.id_user}})">
+        </ion-delete-button>
+        
+
+      </ion-item>
+    </ion-list>
+    <button class="button button-block button-icon icon ion-ios-minus-outline"
+          ng-click="shouldShowDelete = !shouldShowDelete"></button>
+  </ion-content>
+</ion-view>
